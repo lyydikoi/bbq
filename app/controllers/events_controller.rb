@@ -62,11 +62,12 @@ class EventsController < ApplicationController
   end
 
   private
-    def set_event
-      @event = Event.find(params[:id])
-    end
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
-    def event_params
-      params.require(:event).permit(:title, :address, :datetime)
-    end
+  def event_params
+    params.require(:event).permit(:title, :address, :datetime)
+  end
+  
 end
