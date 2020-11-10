@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= csrf_meta_tags %>
-
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csp_meta_tag %>
   
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bbq events organizer" %>">
 
