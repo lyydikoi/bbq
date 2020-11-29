@@ -14,12 +14,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    message = {notice: 'Comment deleted.')}
+    message = { notice: 'Comment deleted.' }
 
     if current_user_can_edit?(@comment)
       @comment.destroy!
     else
-      message = {'Cannot delete comment.'}
+      message = 'Cannot delete comment.'
     end
 
     redirect_to @event, message
