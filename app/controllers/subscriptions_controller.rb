@@ -12,12 +12,13 @@ class SubscriptionsController < ApplicationController
 
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
+
   
     if @new_subscription.save
       message = { notice:  'Subscription was successfully created.' }
     end
       
-    redirect_to @event, message
+    redirect_to @event, { notice:  @new_subscription.errors.full_messages }
   end
 
 
