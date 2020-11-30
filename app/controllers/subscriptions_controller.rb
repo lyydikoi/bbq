@@ -3,16 +3,21 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:destroy]
 
   def create
+    if !current_user_can_subscribe?(@event)
+      redirect_to @event, notice:  'Event hosts can not subscribe...'
+      return
+    end
+
+    message = { alert: 'Subscription was not created...' }
+
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
   
     if @new_subscription.save
-      # Если сохранилась, редиректим на страницу самого события
-      redirect_to @event, notice:  'Subscription was successfully created.'
-    else
-      # если ошибки — рендерим шаблон события
-      render 'events/show', alert: 'Subscription was not created...'
+      message = { notice:  'Subscription was successfully created.' }
     end
+      
+    redirect_to @event, message
   end
 
 
