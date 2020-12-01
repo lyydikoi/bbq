@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_can_subscribe?(event)
-    !user_signed_in? || event.user != current_user
+    event.user != current_user
   end
 
   def configure_permitted_parameters

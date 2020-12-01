@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:destroy]
 
   def create
-    if !current_user_can_subscribe?(@event)
+    unless current_user_can_subscribe?(@event)
       redirect_to @event, notice:  'Event hosts can not subscribe...'
       return
     end
