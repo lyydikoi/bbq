@@ -30,7 +30,7 @@ class Subscription < ApplicationRecord
     end
   end
 
-  def current_user_can_subscribe?(event)
+  def self.current_user_can_subscribe?(event, current_user)
     event.user != current_user
   end
 
