@@ -7,18 +7,17 @@ class SubscriptionsController < ApplicationController
       redirect_to @event, notice:  'Event hosts can not subscribe...'
       return
     end
-
-    message = { alert: 'Subscription was not created...' }
-
+    
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
-
+    
+    message = { alert: 'Subscription was not created...' }
   
     if @new_subscription.save
       message = { notice:  'Subscription was successfully created.' }
     end
       
-    redirect_to @event, { notice:  @new_subscription.errors.full_messages }
+    redirect_to @event, message
   end
 
 
