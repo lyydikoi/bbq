@@ -4,30 +4,29 @@ class SubscriptionsController < ApplicationController
 
   def create
     unless Subscription.current_user_can_subscribe?(@event, current_user)
-      redirect_to @event, notice:  'Event hosts can not subscribe...'
-      return
+      redirect_to @event, notice:  I18n.t('controllers.subscriptions.host_cannot_subscribe')
     end
     
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
     
-    message = { alert: 'Subscription was not created...' }
+    message = { alert: I18n.t('controllers.subscriptions.failed_creation') }
   
     if @new_subscription.save
-      message = { notice:  'Subscription was successfully created.' }
+      message = { notice:  I18n.t('controllers.subscriptions.created') }
     end
-      
+
     redirect_to @event, message
   end
 
 
   def destroy
-    message = { notice: 'Subscription was successfully destroyed.' }
+    message = { notice: I18n.t('controllers.subscriptions.destroyed') }
 
     if current_user_can_edit?(@subscription)
       @subscription.destroy
     else
-      message =  { alert: 'Subscription was not destroyed...' }
+      message =  { alert: I18n.t('controllers.subscriptions.failed_destroy') }
     end
   
     redirect_to @event, message

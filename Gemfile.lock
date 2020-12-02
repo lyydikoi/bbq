@@ -71,6 +71,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.2)
+      devise (>= 4.7.1)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -78,6 +80,9 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    i18n_generators (2.2.2)
+      activerecord (>= 3.0.0)
+      railties (>= 3.0.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     less (2.6.0)
@@ -147,6 +152,8 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -202,11 +209,14 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise
+  devise-i18n
+  i18n_generators
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
+  russian
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)

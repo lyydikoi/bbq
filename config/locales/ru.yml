@@ -1,0 +1,62 @@
+ru:
+  app:
+    name: 'Шашлыки'
+    company: 'Домашний программист'
+    
+  controllers:
+    users: 
+      updated: 'Профиль обновлён'
+    subscriptions:
+      created: 'Вы подписаны!'
+      failed_creation: 'Не удалось подписаться'
+      destroyed: 'Вы отписались'
+      failed_destroy: 'Ну удалось отписаться'
+      host_cannot_subscribe: 'Без Вас итак никуда :)'
+
+    events:
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие :('
+
+    comments:
+      created: 'Комментарий добавлен'
+      failed_creation: 'Не удалось создать комментарий'
+      destroyed: 'Комментарий удалён'
+      failed_destroy: 'Не удалось удалить комментарий'
+
+  activerecord:
+    models:
+      comment: Комментарий  #g
+      event: Событие  #g
+      subscription: Подписка  #g
+      user: Учатсник
+
+    attributes:
+      comment:
+        body: Текст комментария
+        event: Событие 
+        user: Участник 
+        user_name: Имя
+
+      event:
+        address: Адрес  #g
+        comments: Комментарии  #g
+        datetime: Дата и время  #g
+        description: Описание  #g
+        subscribers: Подписчики  #g
+        subscriptions: Подписки  #g
+        title: Заголовок
+        user: :activerecord.models.user  #g
+
+      subscription:
+        event: :activerecord.models.event  #g
+        user: :activerecord.models.user  #g
+        user_email: Email
+        user_name: Имя
+
+      user:
+        comments: Комментарии  #g
+        email: Email  #g
+        events: События  #g
+        name: Имя
+        subscriptions: Подписки  #g
