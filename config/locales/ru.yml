@@ -2,6 +2,13 @@ ru:
   app:
     name: 'Шашлыки'
     company: 'Домашний программист'
+
+  view:
+    error:
+      one: 'Ошибка'
+      few: 'Ошибки'
+      many: 'Ошибок'
+      other: 'Ошибок'
     
   controllers:
     users: 
