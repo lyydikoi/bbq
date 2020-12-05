@@ -8,10 +8,9 @@ ru:
       updated: 'Профиль обновлён'
     subscriptions:
       created: 'Вы подписаны!'
-      failed_creation: 'Не удалось подписаться'
+      failed_creation: 'Не удалось подписаться...'
       destroyed: 'Вы отписались'
       failed_destroy: 'Ну удалось отписаться'
-      host_cannot_subscribe: 'Без Вас итак никуда :)'
 
     events:
       created: 'Вы создали новое мероприятие'
@@ -23,6 +22,10 @@ ru:
       failed_creation: 'Не удалось создать комментарий'
       destroyed: 'Комментарий удалён'
       failed_destroy: 'Не удалось удалить комментарий'
+
+  error:
+    subscription:
+        host_cannot_subscribe: 'Без Вас итак никуда :)'
 
   activerecord:
     models:
@@ -60,3 +63,4 @@ ru:
         events: События  #g
         name: Имя
         subscriptions: Подписки  #g
+        

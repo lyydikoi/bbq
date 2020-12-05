@@ -2,11 +2,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_event, only: [:create, :destroy]
   before_action :set_subscription, only: [:destroy]
 
-  def create
-    unless Subscription.current_user_can_subscribe?(@event, current_user)
-      redirect_to @event, notice:  I18n.t('controllers.subscriptions.host_cannot_subscribe')
-    end
-    
+  def create  
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
     
@@ -16,6 +12,10 @@ class SubscriptionsController < ApplicationController
       message = { notice:  I18n.t('controllers.subscriptions.created') }
     end
 
+    if @new_subscription.errors&.messages[:host_subscription]&.present?
+      message[:alert] << " " << @new_subscription.errors.messages[:host_subscription][0]
+    end
+    
     redirect_to @event, message
   end
 
