@@ -1,33 +1,71 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  app:
+    name: 'Шашлыки' #TODO
+    company: 'Домашний программист' #TODO
+    
+  controllers:
+    users: 
+      updated: 'Профиль обновлён' #TODO
+    subscriptions:
+      created: 'Вы подписаны!' #TODO
+      failed_creation: 'Не удалось подписаться' #TODO
+      destroyed: 'Вы отписались' #TODO
+      failed_destroy: 'Ну удалось отписаться' #TODO
+      host_cannot_subscribe: 'Без Вас итак никуда :)' #TODO
+
+    events:
+      created: 'Вы создали новое мероприятие' #TODO
+      updated: 'Вы обновили мероприятие' #TODO
+      destroyed: 'Вы удалили мероприятие :(' #TODO
+
+    comments:
+      created: 'Комментарий добавлен' #TODO
+      failed_creation: 'Не удалось создать комментарий' #TODO
+      destroyed: 'Комментарий удалён' #TODO
+      failed_destroy: 'Не удалось удалить комментарий' #TODO
+
+  activerecord:
+    models:
+      comment: Comment  #g
+      event: Event  #g
+      subscription: Subscription  #g
+      user:
+        one: User  #g
+        other: Users  #g
+
+    attributes:
+      comment:
+        body: Body  #g
+        event: :activerecord.models.event  #g
+        user: :activerecord.models.user  #g
+        user_name: User name  #g
+
+      event:
+        address: Address  #g
+        comments: Comments  #g
+        datetime: Datetime  #g
+        description: Description  #g
+        subscribers: Subscribers  #g
+        subscriptions: Subscriptions  #g
+        title: Title  #g
+        user: :activerecord.models.user  #g
+
+      subscription:
+        event: :activerecord.models.event  #g
+        user: :activerecord.models.user  #g
+        user_email: User email  #g
+        user_name: User name  #g
+
+      user:
+        comments: Comments  #g
+        email: Email  #g
+        encrypted_password: Encrypted password  #g
+        events: Events  #g
+        name: Name  #g
+        remember_created_at: Remember created at  #g
+        reset_password_sent_at: Reset password sent at  #g
+        reset_password_token: Reset password token  #g
+        subscriptions: Subscriptions  #g
+
+  view:
+    error:'error'
