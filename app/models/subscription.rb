@@ -13,8 +13,8 @@ class Subscription < ApplicationRecord
 
   validates :user, uniqueness: {scope: :event_id}, if: -> { user.present? }
   validates :user_email, uniqueness: {scope: :event_id}, unless: -> { user.present? }
-  validates :user_email, uniqueness: {scope: :user_id}, unless: -> {user.present?}
   validate :event_host_cannot_subscribe
+  validate :anonym_cannot_subscribe_existing_user, unless: -> { user.present? }
 
   def user_name
     if user.present?
@@ -33,8 +33,13 @@ class Subscription < ApplicationRecord
   end
 
   def event_host_cannot_subscribe
-    errors.add(:host_subscription, I18n.t('error.subscription.host_cannot_subscribe')) if
+    errors.add(:host, I18n.t('error.subscription.host_cannot_subscribe')) if
       event.user == user
+  end
+
+  def anonym_cannot_subscribe_existing_user
+    errors.add(:anonym, I18n.t('error.subscription.anonym_cannot_subscribe_existing_user')) if
+      User.where(email: user_email).count > 0 
   end
 
 end

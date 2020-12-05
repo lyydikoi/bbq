@@ -12,8 +12,8 @@ class SubscriptionsController < ApplicationController
       message = { notice:  I18n.t('controllers.subscriptions.created') }
     end
 
-    if @new_subscription.errors&.messages[:host_subscription]&.present?
-      message[:alert] << " " << @new_subscription.errors.messages[:host_subscription][0]
+    if @new_subscription.errors.any?
+      message[:alert] << " " << @new_subscription.errors.full_messages.to_sentence
     end
     
     redirect_to @event, message

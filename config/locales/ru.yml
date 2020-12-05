@@ -25,7 +25,8 @@ ru:
 
   error:
     subscription:
-        host_cannot_subscribe: 'Без Вас итак никуда :)'
+        host_cannot_subscribe: 'не может подписаться. Без Вас итак никуда :)'
+        anonym_cannot_subscribe_existing_user: 'не может подписать зарегистрированного учачтника...'
 
   activerecord:
     models:
@@ -56,6 +57,8 @@ ru:
         user: :activerecord.models.user  #g
         user_email: Email
         user_name: Имя
+        host: Организатор
+        anonym: Анонимный участник
 
       user:
         comments: Комментарии  #g
@@ -63,4 +66,3 @@ ru:
         events: События  #g
         name: Имя
         subscriptions: Подписки  #g
-        
