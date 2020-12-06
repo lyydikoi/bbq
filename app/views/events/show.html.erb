@@ -35,8 +35,19 @@
 
   <!-- Activities information -->
   <div class="row">
-    <!-- Comments section -->
     <div class="col-md-8">
+      <!-- Photos section -->
+      <div class="event-photos">
+        <div class="event-photos-gallery">
+          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+        </div>
+        <div class="event-photo-form">
+          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+        </div>
+      </div>
+      <!-- End of photos section -->
+
+      <!-- Comments section -->
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
           locals: {comment: @new_comment || @event.comments.build} %>

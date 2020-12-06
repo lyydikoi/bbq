@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_can_edit?
   
-  # Used both with events and subscriptions.
+  # Used with events, subscriptions and photos.
   def current_user_can_edit?(model)
     # Если у модели есть юзер и он залогиненный, пробуем у неё взять .event
     # Если он есть, проверяем его юзера на равенство current_user.

@@ -21,17 +21,19 @@ en:
       destroyed: 'Вы отписались' #TODO
       failed_destroy: 'Ну удалось отписаться' #TODO
       host_cannot_subscribe: 'Без Вас итак никуда :)' #TODO
-
     events:
       created: 'Вы создали новое мероприятие' #TODO
       updated: 'Вы обновили мероприятие' #TODO
       destroyed: 'Вы удалили мероприятие :(' #TODO
-
     comments:
       created: 'Комментарий добавлен' #TODO
       failed_creation: 'Не удалось создать комментарий' #TODO
       destroyed: 'Комментарий удалён' #TODO
       failed_destroy: 'Не удалось удалить комментарий' #TODO
+    photos:
+      error: 'Что-то не так с фоткой' #TODO
+      created: 'Вы добавили фотографию к событию' #TODO
+      destroyed: 'Вы удалили фотку' #TODO
 
   error:
     subscription:
@@ -46,14 +48,13 @@ en:
       user:
         one: User  #g
         other: Users  #g
-
+      photo: 'Фотография'
     attributes:
       comment:
         body: Body  #g
         event: :activerecord.models.event  #g
         user: :activerecord.models.user  #g
         user_name: User name  #g
-
       event:
         address: Address  #g
         comments: Comments  #g
@@ -63,13 +64,11 @@ en:
         subscriptions: Subscriptions  #g
         title: Title  #g
         user: :activerecord.models.user  #g
-
       subscription:
         event: :activerecord.models.event  #g
         user: :activerecord.models.user  #g
         user_email: User email  #g
         user_name: User name  #g
-
       user:
         comments: Comments  #g
         email: Email  #g
@@ -80,3 +79,6 @@ en:
         reset_password_sent_at: Reset password sent at  #g
         reset_password_token: Reset password token  #g
         subscriptions: Subscriptions  #g
+        avatar: 'Avatar'
+      photo:
+        photo: 'Picture'
