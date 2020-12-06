@@ -3,12 +3,39 @@ ru:
     name: 'Шашлыки'
     company: 'Домашний программист'
 
+  breadcrumbs:
+    application:
+      root: 'Главная'
+    pages:
+      pages: 'Страницы'
+  helpers:
+    actions: 'Действия'
+    links:
+      back: 'Назад'
+      cancel: 'Отменить'
+      confirm: 'Подтвердить'
+      destroy: 'Удадитб'
+      new: 'Создать'
+      edit: 'Изменить'
+    titles:
+      edit: 'Изменить %{model}'
+      save: 'Сохранить %{model}'
+      new: 'Создать %{model}'
+      delete: 'Удалить %{model}'
+
   view:
     error:
       one: 'Ошибка'
       few: 'Ошибки'
       many: 'Ошибок'
       other: 'Ошибок'
+    button:
+      btn_delete: 'Удалить'
+      btn_change: 'Изменить'
+    event:
+      confirm:
+        delete: 'Уверены, что хотите удалить мероприятие?'
+
     
   controllers:
     users: 

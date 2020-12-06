@@ -4,7 +4,13 @@ en:
     company: 'Домашний программист' #TODO
 
   view:
-    error:'error'
+    error: 'error'
+    button:
+      btn_delete: 'Удалить'
+      btn_change: 'Изменить'
+    event:
+      confirm:
+        delete: 'Уверены, что хотите удалить мероприятие?'
 
   controllers:
     users: 
