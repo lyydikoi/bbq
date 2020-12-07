@@ -19,6 +19,8 @@ gem 'rails-i18n'
 
 gem 'carrierwave'
 gem 'rmagick'
+# Upload photos to Amazon S3
+gem 'fog-aws' 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
