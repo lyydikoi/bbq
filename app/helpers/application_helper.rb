@@ -4,7 +4,7 @@ module ApplicationHelper
     if user.avatar?
       user.avatar.url
     else
-      "https://robohash.org/#{user.username}"
+      "https://robohash.org/#{user.name}"
     end
   end
 
@@ -12,7 +12,7 @@ module ApplicationHelper
     if user.avatar.file.present?
       user.avatar.thumb.url
     else
-      "https://robohash.org/#{user.username}"
+      "https://robohash.org/#{user.name}"
     end
   end
 
