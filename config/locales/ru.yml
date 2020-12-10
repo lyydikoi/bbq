@@ -3,26 +3,6 @@ ru:
     name: 'Шашлыки'
     company: 'Домашний программист'
 
-  breadcrumbs:
-    application:
-      root: 'Главная'
-    pages:
-      pages: 'Страницы'
-  helpers:
-    actions: 'Действия'
-    links:
-      back: 'Назад'
-      cancel: 'Отменить'
-      confirm: 'Подтвердить'
-      destroy: 'Удадитб'
-      new: 'Создать'
-      edit: 'Изменить'
-    titles:
-      edit: 'Изменить %{model}'
-      save: 'Сохранить %{model}'
-      new: 'Создать %{model}'
-      delete: 'Удалить %{model}'
-
   view:
     error:
       one: 'Ошибка'
@@ -58,12 +38,21 @@ ru:
       created: 'Вы добавили фотографию к событию'
       destroyed: 'Вы удалили фотку'
 
-  error:
-    subscription:
-        host_cannot_subscribe: 'не может подписаться. Без Вас итак никуда :)'
-        anonym_cannot_subscribe_existing_user: 'не может подписать зарегистрированного учачтника...'
+  #error:
+    #subscription:
+        #host_cannot_subscribe: 'не может подписаться. Без Вас итак никуда :)'
+        #anonym_cannot_subscribe_existing_user: 'не может подписать зарегистрированного учачтника...'
 
+  #
   activerecord:
+    errors:
+      models:
+        subscription:
+          attributes:
+            host:
+              host_cannot_subscribe: 'не может подписаться. Без Вас итак никуда :)'
+            anonym:
+              anonym_cannot_subscribe_existing_user: 'не может подписать зарегистрированного учачтника...'
     models:
       comment: Комментарий  #g
       event: Событие  #g
@@ -90,8 +79,9 @@ ru:
         user: :activerecord.models.user  #g
         user_email: Email
         user_name: Имя
+        user_id: Пользователь
+        anonym: Анонимный пользлватель
         host: Организатор
-        anonym: Анонимный участник
       user:
         comments: Комментарии  #g
         email: Email  #g

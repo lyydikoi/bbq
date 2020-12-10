@@ -1,4 +1,7 @@
 class Subscription < ApplicationRecord
+  attr_accessor :host
+  attr_accessor :anonym
+  
   belongs_to :event
   belongs_to :user, optional: true
 
@@ -33,12 +36,12 @@ class Subscription < ApplicationRecord
   end
 
   def event_host_cannot_subscribe
-    errors.add(:host, I18n.t('error.subscription.host_cannot_subscribe')) if
+    errors.add(:host, :host_cannot_subscribe) if
       event.user == user
   end
 
   def anonym_cannot_subscribe_existing_user
-    errors.add(:anonym, I18n.t('error.subscription.anonym_cannot_subscribe_existing_user')) if
+    errors.add(:anonym, :anonym_cannot_subscribe_existing_user) if
       User.where(email: user_email).count > 0 
   end
 
