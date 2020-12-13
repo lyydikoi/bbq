@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -62,4 +62,14 @@ Rails.application.configure do
 
   # Device configuration fot ActionMailer.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # TODO: remove creadentials
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: '587',
+    user_name: Rails.application.credentials.mailer[:user_name],
+    password: Rails.application.credentials.mailer[:password],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end

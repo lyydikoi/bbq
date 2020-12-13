@@ -9,6 +9,7 @@ class SubscriptionsController < ApplicationController
     message = { alert: I18n.t('controllers.subscriptions.failed_creation') }
   
     if @new_subscription.save
+      EventMailer.subscription(@event, @new_subscription).deliver_now
       message = { notice:  I18n.t('controllers.subscriptions.created') }
     end
 
