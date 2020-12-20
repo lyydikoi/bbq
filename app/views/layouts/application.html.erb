@@ -9,14 +9,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
   
+    <%= javascript_pack_tag 'maps_js' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAj4wlxLklEcT6c55dAC_sDKyG1R938Mv&callback=initMap' %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-    <script defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAj4wlxLklEcT6c55dAC_sDKyG1R938MvE&callback=initMap&libraries=&v=weekly">
-    </script>
-
-    <%= javascript_pack_tag 'maps_js' %>
     
     <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bbq events organizer" %>">
