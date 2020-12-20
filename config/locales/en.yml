@@ -82,3 +82,29 @@ en:
         avatar: 'Avatar'
       photo:
         photo: 'Picture'
+
+
+  event_mailer:
+    comment:
+      subject: "Новый комментарий %{event}" #TODO
+      title: 'Новый комментарий' #TODO
+      author: 'Автор' #TODO
+      event: 'Событие' #TODO
+      datetime: 'Состоится' #TODO
+      owner: 'Организатор' #TODO
+    subscription:
+      subject: "Новая подписка на %{event}" #TODO
+      title: 'Новая подписка' #TODO
+      name: 'Имя' #TODO
+      email: 'Email' #TODO
+      author: 'Автор' #TODO
+      event: 'Событие' #TODO
+      datetime: 'Состоится' #TODO
+      owner: 'Организатор' #TODO
+    photo:
+      subject: "Загружено новое фото %{event}" #TODO
+      title: 'Загружено новое фото' #TODO
+      author: 'Автор' #TODO
+      event: 'Событие' #TODO
+      datetime: 'Состоится' #TODO
+      owner: 'Организатор' #TODO
