@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  id         :integer          not null, primary key
+#  user_name  :string
+#  user_email :string
+#  event_id   :integer
+#  user_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Subscription < ApplicationRecord
   attr_accessor :host
   attr_accessor :anonym

@@ -36,6 +36,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'i18n_generators'
+
+  gem 'annotate'
 end
 
 group :production do

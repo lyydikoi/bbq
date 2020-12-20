@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :text
+#  address     :string
+#  datetime    :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer          not null
+#
 class Event < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
