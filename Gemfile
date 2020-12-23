@@ -22,6 +22,8 @@ gem 'rmagick'
 # Upload photos to Amazon S3
 gem 'fog-aws' 
 
+gem 'open_street_map'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', '~> 1.4'

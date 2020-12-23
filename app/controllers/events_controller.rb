@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
+    setCoordinatesByAddress if @event.address.present?
   
     if @event.save
       redirect_to @event, notice: I18n.t('controllers.events.created')
@@ -41,6 +42,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    setCoordinatesByAddress if @event.address.present?
+
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
@@ -56,6 +59,14 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def setCoordinatesByAddress
+    client = OpenStreetMap::Client.new
+    result = client.search(q: @event.address, format: 'json', addressdetails: '1', accept_language: 'ru')
+    client = nil
+    @event.lat = result[0]["lat"]&.to_d
+    @event.lon = result[0]["lon"]&.to_d
+  end
 
   def set_event
     @event = Event.find(params[:id])

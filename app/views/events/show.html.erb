@@ -28,8 +28,14 @@
             </div>
             <p>
           <% end %>
+        <!-- Event map -->
         </div class="col-md-6">
-          <div id="map" data-address="#{@event.address}">
+          <div id="map" data-address="#{@event.address}" style="widht:100px; height:200px;">
+          </div>
+          <div class="address_holder">
+            <%= hidden_field_tag(:event_address, @event.address) %>
+            <%= hidden_field_tag(:lat, @event.lat) %>
+            <%= hidden_field_tag(:lon, @event.lon) %>
           </div>
       </div>
     </div>

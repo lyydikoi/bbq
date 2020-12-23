@@ -1,47 +1,20 @@
-let map;
 
-console.log("Hello maps1");
+window.addEventListener("turbolinks:load", () => {
+  let initMap = () => {
+    let lat = document.getElementById('lat')?.value;
+    let lon = document.getElementById('lon')?.value;
 
-function initMap() {
-  console.log("Hello maps2");
+    if (lat && lon) {
+      let mymap = L.map('map').setView([lat, lon], 13);
 
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-}
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 18
+      }).addTo(mymap)
 
-/*ymaps.ready(init);
-var myMap;
-
-function init(){
-  address = document.getElementById('map').getAttribute('data-address');
-
-  myMap = new ymaps.Map("map", {
-      center: [55.76, 37.64],
-      zoom: 10
-  });
-
-  console.log(address);
-
-  myGeocoder = ymaps.geocode(address);
-
-  myGeocoder.then(
-    function (res) {
-      coordinates = res.geoObjects.get(0).geometry.getCoordinates();
-
-      myMap.geoObjects.add(
-          new ymaps.Placemark(
-            coordinates,
-            {iconContent: address},
-            {preset: 'islands#blueStretchyIcon'}
-          )
-      );
-
-      myMap.setCenter(coordinates);
-      myMap.setZoom(15);
-    }, function (err) {
-      alert('Can not find place by given address...');
+      marker = L.marker([lat, lon]).addTo(mymap)
     }
-  );
-}*/
+  }
+
+  initMap();
+});

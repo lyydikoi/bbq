@@ -8,13 +8,22 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
+
+    <!-- <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAj4wlxLklEcT6c55dAC_sDKyG1R938MvE'%> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <!-- Script enables JS implementation of Map -->
     <%= javascript_pack_tag 'maps_js' %>
-    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAj4wlxLklEcT6c55dAC_sDKyG1R938Mv&callback=initMap' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <title><%= content_for?(:title) ? yield(:title) : "Bbq" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bbq events organizer" %>">
 
