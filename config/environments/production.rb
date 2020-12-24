@@ -63,7 +63,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Базовый URL сайта для правильных ссылок в письмах
-  config.action_mailer.default_url_options = {host:'grilli.herokuapp.com'}
+  config.action_mailer.default_url_options = {host:'grilli.herokuapp.com', :protocol => 'https'}
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -80,8 +80,8 @@ Rails.application.configure do
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :user_name      => ENV['SENDGRID_API'],
+    :password       => ENV['SENDGRID_API_KEY'],
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
