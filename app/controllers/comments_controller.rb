@@ -30,10 +30,10 @@ class CommentsController < ApplicationController
   private
 
   def notify_other_subscribers(event, comment)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
-    all_emails.delete_if {|email| email == current_user&.email }
+    emails = event.subscriptions.where.not(user_email: current_user&.email).map(&:user_email)
+    emails = emails + [event.user.email] if event.user.email != current_user&.email
   
-    all_emails.each do |mail|
+    aemails.each do |mail|
       EventMailer.comment(event, comment, mail).deliver_now
     end
   end

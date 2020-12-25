@@ -29,11 +29,12 @@ class PhotosController < ApplicationController
 
   private
 
+  # Notify all other subscribers including event host, if he is not current user
   def notify_other_subscribers(event, photo)
-    all_emails = (event.subscriptions.map(&:user_email) + [event.user.email]).uniq
-    all_emails.delete_if {|email| email == current_user&.email }
+    emails = event.subscriptions.where.not(user_email: current_user&.email).map(&:user_email)
+    emails = emails + [event.user.email] if event.user.email != current_user&.email
 
-    all_emails.each do |email|
+    emails.each do |email|
       EventMailer.photo(event, photo, email).deliver_now
     end
   end
