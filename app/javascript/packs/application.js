@@ -22,8 +22,8 @@ import flatpickr from "flatpickr"
 // const imagePath = (name) => images(name, true)
 
 window.addEventListener("turbolinks:load", () => {
-  alert("HELLO")
   initMap()
+  
   flatpickr("[data-behavior='flatpickr']", {
     altInput: true,
     altFormat: "F j, Y",
