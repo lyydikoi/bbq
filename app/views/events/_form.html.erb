@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :datetime %>
-    <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
+    <p><%= f.text_field :datetime, data: { behavior: "flatpickr" } %></p>
   </div>
 
   <div class="form-group">

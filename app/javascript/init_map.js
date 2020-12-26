@@ -10,7 +10,7 @@ const initMap = () => {
       maxZoom: 18
     }).addTo(mymap);
 
-    marker = L.marker([lat, lon]).addTo(mymap);
+    let marker = L.marker([lat, lon]).addTo(mymap);
   }
 }
 
