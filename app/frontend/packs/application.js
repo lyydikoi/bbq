@@ -10,10 +10,6 @@ require('@rails/activestorage').start()
 require('channels')
 require('jquery')
 
-//import 'bootstrap'
-//import 'bootstrap/dist/js/bootstrap'
-//import "@fortawesome/fontawesome-free/js/all";
-
 // Styles
 import 'styles/application'
 
