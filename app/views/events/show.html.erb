@@ -28,15 +28,18 @@
             </div>
             <p>
           <% end %>
+        </div>
         <!-- Event map -->
-        </div class="col-md-6">
+        <div class="col-md-6">
           <div id="map" data-address="#{@event.address}" style="widht:100px; height:200px;">
           </div>
-          <div class="address_holder">
-            <%= hidden_field_tag(:event_address, @event.address) %>
-            <%= hidden_field_tag(:lat, @event.lat) %>
-            <%= hidden_field_tag(:lon, @event.lon) %>
-          </div>
+        </div>
+
+        <div class="address_holder">
+          <%= hidden_field_tag(:event_address, @event.address) %>
+          <%= hidden_field_tag(:lat, @event.lat) %>
+          <%= hidden_field_tag(:lon, @event.lon) %>
+        </div>
       </div>
     </div>
   </div>
@@ -47,11 +50,15 @@
     <div class="col-md-8">
       <!-- Photos section -->
       <div class="event-photos">
-        <div class="event-photos-gallery">
+        <div class="row">
           <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
         </div>
-        <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+        <div class="row">
+          <div class="col-lg-4 col-md-8 col-sm-12">
+            <div class="event-photo-form">
+              <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+            </div>
+          </div>
         </div>
       </div>
       <!-- End of photos section -->
